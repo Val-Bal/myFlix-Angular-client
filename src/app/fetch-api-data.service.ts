@@ -127,7 +127,7 @@ export class UserRegistrationService {
   );
 }
  // Making the api call for the Delete user endpoint
- deleteUser(deleteUser: any): Observable<any> {
+ deleteUser(): Observable<any> {
   const username = localStorage.getItem('username');
   const token = localStorage.getItem('token');
   return this.http.delete(apiUrl + 'users/' + username, {headers: new HttpHeaders(
