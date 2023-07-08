@@ -37,13 +37,22 @@ export class UserProfileComponent implements OnInit {
   }
 
   getUser(): void {
-    this.user = this.fetchApiData.getOneUser();
-    this.userData.Username = this.user.Username;
-    this.userData.Email = this.user.Email;
-    this.userData.Birthday = formatDate(this.user.Birthday, 'yyyy-MM-dd', 'en-US', 'UTC+0');
+    this.fetchApiData.getOneUser().subscribe((resp: any) => {
+      this.user = resp;
+      this.userData.Username = this.user.Username;
+      this.userData.Email = this.user.Email;
+      this.userData.Birthday = formatDate(
+        this.user.Birthday,
+        'yyyy-MM-dd',
+        'en-US',
+        'UTC+0'
+      );
 
-    this.fetchApiData.getAllMovies().subscribe((resp: any) => {
-      this.favoriteMovies = resp.filter((m: { _id: any; }) => this.user.FavoriteMovies.indexOf(m._id) >= 0);
+      this.fetchApiData.getAllMovies().subscribe((resp: any) => {
+        this.favoriteMovies = resp.filter(
+          (m: { _id: any }) => this.user.FavoriteMovies.indexOf(m._id) >= 0
+        );
+      });
     });
   }
 
