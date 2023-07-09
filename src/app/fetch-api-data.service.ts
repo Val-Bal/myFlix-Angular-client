@@ -115,9 +115,13 @@ export class UserRegistrationService {
 }
 
 // Making the api call to ask if a movie is favourite Movies 
+// isFavoriteMovie(movieId: string): boolean {
+//   const user = JSON.parse(localStorage.getItem('user') || '{}');
+//   return user.FavoriteMovies.indexOf(movieId) >= 0;
+// }
 isFavoriteMovie(movieId: string): boolean {
   const user = JSON.parse(localStorage.getItem('user') || '{}');
-  return user.FavoriteMovies.indexOf(movieId) >= 0;
+  return user.FavoriteMovies && user.FavoriteMovies.indexOf(movieId) >= 0;
 }
 
  // Making the api call for the Edit user endpoint
