@@ -128,7 +128,7 @@ isFavoriteMovie(movieId: string): boolean {
  updateUser(updateUser: any): Observable<any> {
   const username = localStorage.getItem('username');
   const token = localStorage.getItem('token');
-  return this.http.put(apiUrl + 'users/' + username, {headers: new HttpHeaders(
+  return this.http.put(apiUrl + 'users/' + username, updateUser, {headers: new HttpHeaders(
     {
       Authorization: 'Bearer ' + token,
     })}).pipe(
