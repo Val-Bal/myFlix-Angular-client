@@ -1,6 +1,36 @@
 # MyFlixAngularClient
 
+## Project description
+The client-side for an application called myFlix based on its existing server-side code (REST API and database), with supporting documentation.
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.6.
+
+## Key Features
+- Welcome view where users can register and login
+- Movie view where users can see a list of all movies
+- Movie card view, where users can see information about the movies sinopsis, genre and director
+- User profile view, where users can see and update their profile information, seen their favorite movies and can deregister
+
+## Technologie used
+- TypeScript 
+- Angular
+- TypeDoc
+- SCSS
+
+## Project dependencies
+- "@angular/animations": "^15.2.0",
+- "@angular/cdk": "^15.2.9",
+- "@angular/common": "^15.2.0",
+- "@angular/compiler": "^15.2.0",
+- "@angular/core": "^15.2.0",
+- "@angular/forms": "^15.2.0",
+- "@angular/material": "^15.2.9",
+- "@angular/platform-browser": "^15.2.0",
+- "@angular/platform-browser-dynamic": "^15.2.0",
+- "@angular/router": "^15.2.0",
+- "rxjs": "~7.8.0",
+- "tslib": "^2.3.0",
+- "zone.js": "~0.12.0"
+
 
 ## Development server
 
