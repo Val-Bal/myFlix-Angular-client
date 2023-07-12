@@ -32,7 +32,9 @@ constructor(
 ngOnInit(): void {
 }
 
-// This is the function responsible for sending the form inputs to the backend
+/**
+* Sending form inputs to backend
+*/
 loginUser(): void {
   this.fetchApiData.userLogin(this.loginData).subscribe((result: any) => {
 // Logic for a successful user login goes here! (To be implemented)
