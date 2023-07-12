@@ -105,7 +105,7 @@ export class UserRegistrationService {
  addFavoriteMovie(movieID: any): Observable<any> {
   const username = localStorage.getItem('username');
   const token = localStorage.getItem('token');
-  return this.http.post(apiUrl + 'users/' + username + '/movies/' + movieID, {headers: new HttpHeaders(
+  return this.http.post(apiUrl + 'users/' + username + '/movies/' + movieID, {}, {headers: new HttpHeaders(
     {
       Authorization: 'Bearer ' + token,
     })}).pipe(
@@ -114,11 +114,21 @@ export class UserRegistrationService {
   );
 }
 
+// Making the api call to ask if a movie is favourite Movies 
+// isFavoriteMovie(movieId: string): boolean {
+//   const user = JSON.parse(localStorage.getItem('user') || '{}');
+//   return user.FavoriteMovies.indexOf(movieId) >= 0;
+// }
+isFavoriteMovie(movieId: string): boolean {
+  const user = JSON.parse(localStorage.getItem('user') || '{}');
+  return user.FavoriteMovies && user.FavoriteMovies.indexOf(movieId) >= 0;
+}
+
  // Making the api call for the Edit user endpoint
  updateUser(updateUser: any): Observable<any> {
   const username = localStorage.getItem('username');
   const token = localStorage.getItem('token');
-  return this.http.put(apiUrl + 'users/' + username, {headers: new HttpHeaders(
+  return this.http.put(apiUrl + 'users/' + username, updateUser, {headers: new HttpHeaders(
     {
       Authorization: 'Bearer ' + token,
     })}).pipe(
@@ -127,7 +137,7 @@ export class UserRegistrationService {
   );
 }
  // Making the api call for the Delete user endpoint
- deleteUser(deleteUser: any): Observable<any> {
+ deleteUser(): Observable<any> {
   const username = localStorage.getItem('username');
   const token = localStorage.getItem('token');
   return this.http.delete(apiUrl + 'users/' + username, {headers: new HttpHeaders(
@@ -153,7 +163,7 @@ export class UserRegistrationService {
 }
 
 // Non-typed response extraction
-private extractResponseData(res: Response): any {
+private extractResponseData(res: any): any {
   const body = res;
   return body || { };
 }
