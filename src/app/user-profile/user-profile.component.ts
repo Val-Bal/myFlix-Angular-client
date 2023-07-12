@@ -36,6 +36,9 @@ export class UserProfileComponent implements OnInit {
     this.getUser();
   }
 
+  /**
+  * Geting user info and favorite movies from API
+  */
   getUser(): void {
     this.fetchApiData.getOneUser().subscribe((resp: any) => {
       this.user = resp;
@@ -56,6 +59,9 @@ export class UserProfileComponent implements OnInit {
     });
   }
 
+  /**
+  *Calling API to update user info
+  */
   editUser(): void {
     this.fetchApiData.updateUser(this.userData).subscribe((result) => {
       localStorage.setItem('user', JSON.stringify(result));
@@ -70,6 +76,9 @@ export class UserProfileComponent implements OnInit {
     });
   }
 
+  /**
+  *Calling API to delete user
+  */
   deleteUser(): void {
     this.fetchApiData.deleteUser().subscribe((result) => {
       localStorage.clear();
