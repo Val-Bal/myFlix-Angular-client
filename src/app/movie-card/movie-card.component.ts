@@ -21,6 +21,9 @@ ngOnInit(): void {
 /**
 * Calling get movies method on API
 */
+/**
+* Calling get movies method on API
+*/
 getMovies(): void {
   this.fetchApiData.getAllMovies().subscribe((resp: any) => {
       this.movies = resp;
@@ -29,6 +32,11 @@ getMovies(): void {
     });
   }
 
+  /**
+  * Opening genre dialog
+  * @param name The genre's name to show on the dialog (title)
+  * @param description The genre's description to show on the dialog
+  */
   /**
   * Opening genre dialog
   * @param name The genre's name to show on the dialog (title)
@@ -48,6 +56,11 @@ getMovies(): void {
   * @param name The director's name to show on the dialog (title)
   * @param bio The director's biography to show on the dialog
   */
+  /**
+  * Opening director dialog
+  * @param name The director's name to show on the dialog (title)
+  * @param bio The director's biography to show on the dialog
+  */
   openDirector(name: string, bio: string): void {
     this.dialog.open(MovieInfoComponent, {
       data: {
@@ -57,6 +70,10 @@ getMovies(): void {
     });
   }
 
+  /**
+  * Opening movie description dialog
+  * @param description The text to show on the dialog
+  */
   /**
   * Opening movie description dialog
   * @param description The text to show on the dialog
@@ -74,6 +91,10 @@ getMovies(): void {
   * Calling add favorite movie method on API
   * @param id The movie ID
   */
+  /**
+  * Calling add favorite movie method on API
+  * @param id The movie ID
+  */
   addFavorite(id: string): void {
     this.fetchApiData.addFavoriteMovie(id).subscribe((result) => {
 
@@ -87,10 +108,18 @@ getMovies(): void {
   * Calling check favorite movie method on API
   * @param id The movie ID
   */
+ /**
+  * Calling check favorite movie method on API
+  * @param id The movie ID
+  */
   isFavorite(id: string): boolean {
     return this.fetchApiData.isFavoriteMovie(id);
   }
 
+ /**
+  * Calling delete favorite movie method on API
+  * @param id The movie ID
+  */
  /**
   * Calling delete favorite movie method on API
   * @param id The movie ID
