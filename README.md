@@ -1,5 +1,5 @@
 # MyFlixAngularClient
-
+TEST
 ## Project description
 The client-side for an application called myFlix based on its existing server-side code (REST API and database), with supporting documentation.
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.6.
